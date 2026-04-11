@@ -5,7 +5,7 @@
 
 ## Enunciado General
 
-El sistema permite gestionar el alquiler de aviones en un aerodromo y los cursos disponibles para los socios del aeroclub, puede mostrar los horarios de los cursos y alquileres programados, listar los aviones disponibles para alquilar en cierto horario (filtrado por estado del avion y horarios del alquiler), ademas de ayudar con el calculo del costo de los alquileres y organizar los instructor y socios que participan en un curso.
+El sistema permite gestionar el alquiler de aviones en un aerodromo y los cursos disponibles para los socios del aeroclub, puede mostrar los horarios de los cursos y alquileres programados, listar los aviones disponibles para alquilar en cierto horario (filtrado por estado del avion y horarios del alquiler), ademas de ayudar con el calculo del costo de los alquileres y organizar los instructores y socios que participan en un curso.
 
 
 ## DER
