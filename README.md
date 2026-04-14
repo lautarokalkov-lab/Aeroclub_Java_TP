@@ -15,7 +15,7 @@ El sistema permite gestionar el alquiler de aviones en un aerodromo y los cursos
 ## Regularidad
 | Requerimiento    | Detalle/Listado de casos incluidos |
 | :--------------- | ------------------------------------------------------------------------------------------------------ |
-| ABMC simple      | Usuario <br>Avion |
+| ABMC simple      | Usuario <br>tipo_avion |
 | ABMC dependiente | Alquiler |
 | CU NO-ABMC       | Alquilar Avión |
 | Listado simple   | Listado de alquileres con datos de socio y avión |
@@ -26,7 +26,7 @@ El sistema permite gestionar el alquiler de aviones en un aerodromo y los cursos
 | Requerimiento                   | Detalle/Listado de casos incluidos                                                                                                                                                      |
 | :------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ABMC                            |  Usuario <br>tipo_licencia <br>Curso <br>Avion |
-| CU "Complejo"                   | Gestión de alquiler de avión |
+| CU "Complejo"                   | Gestión de alquiler de avión <br>Inscripcion a curso |
 | Listado complejo                | Alquileres filtrados por fecha o socio |
 | Nivel de acceso                 | Administrador <br>Socio |
 
