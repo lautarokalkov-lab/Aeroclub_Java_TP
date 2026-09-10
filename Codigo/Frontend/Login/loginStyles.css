@@ -1,0 +1,143 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-image:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6)), url("../fondo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  backdrop-filter: blur(0.25vh);
+}
+
+header {
+  position: absolute;
+  top: 0;
+
+  background-color: rgba(198, 197, 197, 0.862);
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+header #logo {
+  width: 15vh;
+  height: 10vh;
+
+  background-image: url("../logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  margin-left: 10vh;
+}
+
+#contenido {
+  width: 30%;
+  height: 60%;
+  margin-bottom: 10vh;
+  border: 0.7vh solid black;
+  border-radius: 3vh;
+  padding: 5vh;
+  box-shadow: 1vh 1vh 1vh rgb(0 0 0 / 0.5);
+  background-color: rgba(76, 134, 173, 0.9);
+}
+
+#titulo {
+  text-shadow: 0.2vh 0.2vh 0.2vh rgb(0 0 0 / 0.5);
+  text-align: center;
+  font-size: 6vh;
+  max-height: 7vh;
+  color: white;
+}
+
+#entradas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#usuario {
+  margin: 1vh;
+  width: 90%;
+  height: 6vh;
+  font-size: 3vh;
+  border: 0.2vh solid white;
+  border-radius: 2vh;
+  box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
+  padding-left: 1vh;
+  color: white;
+  background-color: black;
+}
+
+#contrasena {
+  margin: 1vh;
+  width: 90%;
+  height: 6vh;
+  font-size: 3vh;
+  border: 0.2vh solid white;
+  border-radius: 2vh;
+  box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
+  padding-left: 1vh;
+  color: white;
+  background-color: black;
+}
+
+#botones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#acceder {
+  cursor: pointer;
+  margin: 1vh;
+  margin-top: 4vh;
+  width: 50%;
+  height: 6vh;
+  font-size: 3vh;
+  background-color: rgb(39, 111, 13);
+  color: white;
+  border-radius: 2.5vh;
+  border: 0.3vh solid black;
+  box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
+}
+
+#registrarse {
+  cursor: pointer;
+  margin: 1vh;
+  margin-top: 5vh;
+  width: 20vh;
+  height: 6vh;
+  font-size: 2vh;
+  background-color: rgb(0 0 140 / 0);
+  border: 0px;
+  border-radius: 3vh;
+  color: white;
+}
+
+#registrarse:hover {
+  border: 0.4vh solid blueviolet;
+  color: blueviolet;
+  background-color: aqua;
+  text-decoration: underline blueviolet;
+  box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
+}
+
+#acceder:hover {
+  color: black;
+  background-color: aqua;
+  border: 0.4vh solid black;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.68);
+}
