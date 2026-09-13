@@ -8,14 +8,30 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+
+  min-height: 100vh;
+
+  position: relative;
+}
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
   background-image:
     linear-gradient(0deg, rgba(0, 0, 0, 0.6)), url("../fondo.jpg");
+
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  backdrop-filter: blur(0.25vh);
+  background-position: center;
+
+  filter: blur(0.25vh);
+
+  z-index: -1;
 }
 
 header {
