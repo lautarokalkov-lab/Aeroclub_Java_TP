@@ -1,7 +1,7 @@
 const salir = document.getElementById("salir");
 const sobreNosotros = document.getElementById("sobreNosotros");
-const botonNuevoAlquiler = document.getElementById("botonNuevoAlquiler");
-const nuevoAlquiler = document.getElementById("nuevoAlquiler");
+const inicio = document.getElementById("inicio");
+const logo = document.getElementById("logo");
 const cursos = document.getElementById("cursos");
 
 salir.addEventListener("click", logOut);
@@ -14,13 +14,13 @@ function Nosotros() {
   window.location.replace("../SobreNosotros/sobreNosotros.html");
 }
 
-nuevoAlquiler.addEventListener("click", IrNuevoAlquiler);
-botonNuevoAlquiler.addEventListener("click", IrNuevoAlquiler);
-function IrNuevoAlquiler() {
-  window.location.replace("../NuevoAlquiler/nuevoAlquiler.html");
+logo.addEventListener("click", pagPrincipal);
+inicio.addEventListener("click", pagPrincipal);
+function pagPrincipal() {
+  window.location.replace("../Inicio/inicio.html");
 }
 
-cursos.addEventListener("click", curso);
-function curso() {
+cursos.addEventListener("click", pagCursos);
+function pagCursos() {
   window.location.replace("../Cursos/curso.html");
 }

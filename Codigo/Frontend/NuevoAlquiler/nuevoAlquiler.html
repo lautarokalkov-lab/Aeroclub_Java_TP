@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AeroClub</title>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <link rel="stylesheet" href="nuevoAlquilerStyles.css" />
+  </head>
+  <body>
+    <header>
+      <div id="logo"></div>
+      <div id="salir"></div>
+    </header>
+
+    <div class="sidebar">
+      <h2>Menú</h2>
+      <ul>
+        <li><a id="inicio" href="#">Inicio</a></li>
+        <li><a id="nuevoAlquiler" href="#">Nuevo Alquiler</a></li>
+        <li><a id="cursos" href="#">Cursos</a></li>
+        <li><a id="sobreNosotros" href="#">Sobre Nosotros</a></li>
+      </ul>
+    </div>
+
+    <div class="alquileres">
+      <div id="filtros">
+        <label>Fecha Salida: </label>
+        <input id="filtroFecha" type="date" />
+        <label>Hora Salida: </label>
+        <input id="horaIni" type="time" />
+        <label>Hora Llegada: </label>
+        <input id="horaFin" type="time" />
+
+        <select>
+          <option>Todos los Modelos</option>
+          <option>Cessna 172</option>
+          <option>Cessna150</option>
+          <option>Piper 11</option>
+        </select>
+        <button id="botonBuscar">Buscar</button>
+      </div>
+
+      <div id="listaAlquileres">
+        <table>
+          <thead>
+            <tr>
+              <th>Modelo de avión</th>
+              <th>Matrícula</th>
+              <th>Costo por hora</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Cessna 172</td>
+              <td>LV-ABC</td>
+              <td>$4000</td>
+              <td><button>Alquilar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="nuevoAlquiler.js"></script>
+  </body>
+</html>

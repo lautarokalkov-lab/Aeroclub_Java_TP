@@ -101,12 +101,12 @@ header #salir:hover {
   text-decoration: none;
 }
 
-#inicio {
+#nuevoAlquiler {
   background-color: #474747;
   padding-left: 3vh;
 }
 
-#inicio:hover {
+#nuevoAlquiler:hover {
   background-color: #575757;
 }
 
@@ -123,16 +123,23 @@ header #salir:hover {
   margin-left: 35vh;
 }
 
-#barraSuperior {
+#filtros {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1vh;
   background-color: #1e1e1ec5;
-  padding-right: 2vh;
+  padding-left: 15vh;
+  padding-right: 12.5vh;
 }
 
-#botonNuevoAlquiler {
+#filtros label {
+  color: white;
+  font-size: 2.5vh;
+  margin-right: 1%;
+}
+
+#botonBuscar {
   height: 5vh;
   padding: 0 2vh;
   font-size: 2vh;
@@ -145,8 +152,27 @@ header #salir:hover {
   box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
 }
 
-#filtros {
-  margin-left: 5vh;
+#filtroFecha {
+  background-color: #6a6a6a;
+  color: white;
+  height: 5vh;
+  font-size: 2.5vh;
+  border-radius: 10px;
+  border: 0.3vh solid black;
+  margin-right: auto;
+  box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
+}
+
+#filtros #horaIni,
+#horaFin {
+  background-color: #6a6a6a;
+  color: white;
+  height: 5vh;
+  font-size: 2.5vh;
+  border-radius: 10px;
+  margin-right: auto;
+  border: 0.3vh solid black;
+  box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
 }
 
 #filtros select {
@@ -155,37 +181,13 @@ header #salir:hover {
   height: 5vh;
   font-size: 2.5vh;
   border-radius: 10px;
-  margin-right: 3vh;
+  margin-right: auto;
   border: 0.3vh solid black;
   box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
 }
 
 #filtros select option {
   font-size: 2.5vh;
-}
-
-#filtroFecha {
-  background-color: #6a6a6a;
-  color: white;
-  height: 5vh;
-  font-size: 2.5vh;
-  border-radius: 10px;
-  border: 0.3vh solid black;
-  margin-right: 3vh;
-  box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
-}
-
-#botonFiltrar {
-  height: 5vh;
-  padding: 0 2vh;
-  font-size: 2vh;
-  cursor: pointer;
-  font-size: 2.5vh;
-  background-color: rgb(28, 18, 139);
-  color: white;
-  border-radius: 10px;
-  border: 0.3vh solid black;
-  box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
 }
 
 #listaAlquileres {
@@ -216,4 +218,17 @@ tbody tr {
 
 tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+tbody tr td button {
+  height: 4vh;
+  padding: 0 2vh;
+  font-size: 2vh;
+  cursor: pointer;
+  font-size: 2.5vh;
+  background-color: rgb(61, 25, 177);
+  color: white;
+  border-radius: 2.5vh;
+  border: 0.3vh solid black;
+  box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
 }

@@ -103,6 +103,7 @@ header #salir:hover {
 
 #sobreNosotros {
   background-color: #474747;
+  padding-left: 3vh;
 }
 
 #sobreNosotros:hover {
@@ -111,6 +112,7 @@ header #salir:hover {
 
 .sidebar li a:hover {
   background-color: #575757;
+  padding-left: 3vh;
 }
 
 /* ------------------------Contenido */
