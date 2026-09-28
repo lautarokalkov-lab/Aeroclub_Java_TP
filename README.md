@@ -24,7 +24,7 @@ El sistema permite gestionar el alquiler de aviones en un aerodromo y los cursos
 
 ## Aprobacion Directa
 
-| Requerimiento                   | Detalle/Listado de casos incluidos                                                                                                                                                      |
+| Requerimiento                   | Detalles/Listado de casos incluidos                                                                                                                                                      |
 | :------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ABMC                            |  Precio<br> Localidad<br> Provincia<br> Domicilio<br> LineaPedido<br> Venta<br> Mensaje<br> Temporal<br> Pago<br> Gastos <br>                                                           |
 | CU "Complejo"                   | Gestión de alquiler de avión      |
