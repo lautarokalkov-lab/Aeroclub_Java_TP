@@ -1,0 +1,185 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  min-height: 100vh;
+
+  position: relative;
+}
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  background-image:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6)), url("../fondo.jpg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(0.4vh);
+
+  z-index: -1;
+}
+
+/* ____________________Barra superior */
+header {
+  position: fixed;
+  top: 0;
+  background-color: rgba(198, 197, 197, 0.862);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+}
+
+header #logo {
+  width: 15vh;
+  height: 10vh;
+
+  background-image: url("../logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  margin-left: 10vh;
+  cursor: pointer;
+}
+
+header #salir {
+  margin-left: auto;
+  margin-right: 5vh;
+  width: 5vh;
+  height: 5vh;
+  background-image: url("../logOut.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+header #salir:hover {
+  background-color: #72727231;
+}
+
+/* _______________________Barra Lateral */
+.sidebar {
+  margin-top: 10vh;
+  height: 90vh;
+  width: 30vh;
+  min-width: 150px;
+  max-width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111111ee;
+  padding-top: 20px;
+}
+
+.sidebar h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+.sidebar li a {
+  padding: 1.5vh 2vh;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar li a:hover {
+  background-color: #575757;
+  padding-left: 3vh;
+}
+
+/* __________________Container */
+#contenido {
+  width: 30%;
+  height: 60%;
+  border: 0.7vh solid black;
+  border-radius: 3vh;
+  padding: 5vh;
+  box-shadow: 1vh 1vh 1vh rgb(0 0 0 / 0.5);
+  background-color: #1e1e1eea;
+  margin-top: 3%;
+}
+
+#titulo {
+  text-shadow: 0.2vh 0.2vh 0.2vh rgb(0 0 0 / 0.5);
+  text-align: center;
+  font-size: 5.5vh;
+  max-height: 7vh;
+  color: white;
+  margin-bottom: 3vh;
+}
+
+td {
+  font-size: 3vh;
+  padding: 0 5px;
+  color: white;
+}
+
+#datosAvion table,
+#datosAlquiler table {
+  width: 100%;
+}
+
+#avion td,
+#alquiler td {
+  background-color: #575757;
+}
+
+tr.separar td {
+  padding-bottom: 15px;
+}
+
+td.fila2 {
+	text-align: right;
+}
+
+#botones {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+#confirmar {
+  height: 5vh;
+  padding: 0 2vh;
+  font-size: 2vh;
+  cursor: pointer;
+  font-size: 2.5vh;
+  background-color: rgb(39, 111, 13);
+  color: white;
+  border-radius: 2.5vh;
+  border: 0.3vh solid black;
+  box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
+  margin-right: 5vh;
+}
+
+#cancelar {
+  height: 5vh;
+  padding: 0 2vh;
+  font-size: 2vh;
+  cursor: pointer;
+  font-size: 2.5vh;
+  color: black;
+  border-radius: 2.5vh;
+  border: 0.3vh solid black;
+  box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
+  margin-left: 5vh;
+}
