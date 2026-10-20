@@ -1,17 +1,15 @@
 package Daos;
 import Clases.AlquilerVista;
+import Clases.Conexion;
 
 import java.util.LinkedList;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class InicioDao {
 	
-	private String url = "jdbc:mysql://localhost:3306/aeroclub";
-    private String usuarioSql = "root";
-    private String contraseñaSql = "root";
+	Conexion conection = new Conexion();
     
 	public LinkedList<AlquilerVista> listarPorUsuario(int idUsuario) {
 
@@ -33,14 +31,11 @@ public class InicioDao {
 	        "when 'Activo' then 1 when 'Pendiente' then 2 when 'Finalizado' then 3 end, alquiler.fecha_inicio";
 
 	    try {
-	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        Class.forName(conection.getDriver());
 
 	        try (
-	            Connection conexion =
-	                DriverManager.getConnection(url, usuarioSql, contraseñaSql);
-
-	            PreparedStatement sentencia =
-	                conexion.prepareStatement(sql)
+	        		Connection conexion = conection.conectar();
+                    PreparedStatement sentencia = conexion.prepareStatement(sql)
 	        ) {
 
 	            sentencia.setInt(1, idUsuario);
@@ -86,9 +81,9 @@ public class InicioDao {
 	        "    + INTERVAL horasVuelo HOUR > NOW()";
 
 	    try {
-	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        Class.forName(conection.getDriver());
 
-	        try (Connection conexion =DriverManager.getConnection(url, usuarioSql, contraseñaSql)) {
+	        try (Connection conexion = conection.conectar()){
 	            
 	            try (PreparedStatement sentencia = conexion.prepareStatement(sqlFinalizar)) {
 

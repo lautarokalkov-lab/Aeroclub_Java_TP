@@ -24,17 +24,14 @@ public class InicioServlet extends HttpServlet {
 
     		int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
 
-    		InicioDao alquileres = new InicioDao();
+    		InicioDao alquileresRepository = new InicioDao();
     		
-    		alquileres.actualizarEstados(idUsuario);
+    		alquileresRepository.actualizarEstados(idUsuario);
 
 
-    		LinkedList<AlquilerVista> listaAlquileres = alquileres.listarPorUsuario(idUsuario);
+    		LinkedList<AlquilerVista> listaAlquileres = alquileresRepository.listarPorUsuario(idUsuario);
 
-    		request.setAttribute(
-    		    "alquileres",
-    		    listaAlquileres
-    		);
+    		request.setAttribute("alquileres", listaAlquileres);
 
     		request.getRequestDispatcher("/Inicio/Inicio.jsp").forward(request, response);
     }

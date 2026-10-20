@@ -2,11 +2,11 @@ package Clases;
 
 public class Usuario {
     private int id;
-    private int nro_doc;
+    private String nro_doc;
     private String nombre;
     private String apellido;
     private String domicilio;
-    private int telefono;
+    private String telefono;
     private String email;
     private String tipo;
     private String contraseña;
@@ -19,10 +19,10 @@ public class Usuario {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getNro_doc() {
+	public String getNro_doc() {
 		return nro_doc;
 	}
-	public void setNro_doc(int nro_doc) {
+	public void setNro_doc(String nro_doc) {
 		this.nro_doc = nro_doc;
 	}
 	public String getNombre() {
@@ -43,10 +43,10 @@ public class Usuario {
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
 	}
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	public String getEmail() {

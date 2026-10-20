@@ -1,36 +1,32 @@
 package Daos;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
+import Clases.Alquiler;
+import Clases.Conexion;
+
 public class GuardarAlquilerDao {
-	private String url = "jdbc:mysql://localhost:3306/aeroclub";
-    private String usuarioSql = "root";
-    private String contraseñaSql = "root";
+	Conexion conection = new Conexion();
 	
-	public void Guardar(int idUsuario, int idAvion, String fechaIni, String horaIni, int horasVuelo, double costo) {
+	public void Guardar(Alquiler alquiler) {
 		String sql =
 				"INSERT INTO alquiler (fecha_inicio, hora_inicio, horasVuelo, estado, costo_total, id_usuario, id_avion)" +
 				"VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                Class.forName(conection.getDriver());
                 try (
-                    Connection conexion = DriverManager.getConnection(
-                        url,
-                        usuarioSql,
-                        contraseñaSql
-                    );
+                    Connection conexion = conection.conectar();
                     PreparedStatement sentencia = conexion.prepareStatement(sql)
                 ) {
-                    sentencia.setString(1, fechaIni);
-                    sentencia.setString(2, horaIni);
-                    sentencia.setInt(3, horasVuelo);
+                    sentencia.setString(1, alquiler.getFechaInicio());
+                    sentencia.setString(2, alquiler.getHoraInicio());
+                    sentencia.setInt(3, alquiler.getHorasVuelo());
                     sentencia.setString(4, "Pendiente");
-                    sentencia.setDouble(5, costo);
-                    sentencia.setInt(6, idUsuario);
-                    sentencia.setInt(7, idAvion);
+                    sentencia.setDouble(5, alquiler.getCostoTotal());
+                    sentencia.setInt(6, alquiler.getIdUsuario());
+                    sentencia.setInt(7, alquiler.getIdAvion());
 
                     int filasInsertadas = sentencia.executeUpdate();
 

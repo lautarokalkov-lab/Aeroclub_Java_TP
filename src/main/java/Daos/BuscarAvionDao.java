@@ -1,16 +1,14 @@
 package Daos;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+import Clases.Conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import Clases.AvionDisponible;
 
 public class BuscarAvionDao {
-	private String url = "jdbc:mysql://localhost:3306/aeroclub";
-    private String usuarioSql = "root";
-    private String contraseñaSql = "root";
+	Conexion conection = new Conexion();
     
     public AvionDisponible buscarAvion(String idAvion) {
     	
@@ -19,13 +17,9 @@ public class BuscarAvionDao {
     			"where id_avion = ?";
 
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                Class.forName(conection.getDriver());
                 try (
-                    Connection conexion = DriverManager.getConnection(
-                        url,
-                        usuarioSql,
-                        contraseñaSql
-                    );
+                    Connection conexion = conection.conectar();
                     PreparedStatement sentencia = conexion.prepareStatement(sql)
                 ) {
                     sentencia.setString(1, idAvion);

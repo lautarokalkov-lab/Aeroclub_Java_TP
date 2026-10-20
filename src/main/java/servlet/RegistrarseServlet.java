@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import Clases.Usuario;
+
 /**
  * Servlet implementation class RegistrarseServlet
  */
@@ -17,31 +19,31 @@ public class RegistrarseServlet extends HttpServlet {
 		    protected void doPost(HttpServletRequest request,
 		                          HttpServletResponse response)
 		            throws ServletException, IOException {
+		    	
+		    	Usuario user = new Usuario();
+		    	
+		        user.setEmail(request.getParameter("email"));
+		        user.setContraseña(request.getParameter("contrasena"));
+		        user.setApellido(request.getParameter("apellido"));
+		        user.setNombre(request.getParameter("nombre"));
+		        user.setNro_doc(request.getParameter("documento"));
+		        user.setDomicilio(request.getParameter("direccion"));
+		        user.setTelefono(request.getParameter("telefono"));
 
-		        String email = request.getParameter("email");
-		        String contrasena = request.getParameter("contrasena");
-		        String apellido = request.getParameter("apellido");
-		        String nombre = request.getParameter("nombre");
-		        String documento = request.getParameter("documento");
-		        String direccion = request.getParameter("direccion");
-		        String telefono = request.getParameter("telefono");
-
-		        System.out.println(
-		            "Registrando: " + email + " " + nombre + " " + apellido
-		        );
-		        if (direccion != null && direccion.isBlank()) {
-		        	direccion = null;
+		        System.out.println("Registrando: " + user.getEmail() + " " + user.getNombre() + " " + user.getApellido());
+		        if (user.getDomicilio() != null && user.getDomicilio().isBlank()) {
+		        	user.setDomicilio(null);
 		        }
-		        if (telefono != null && telefono.isBlank()) {
-		            telefono = null;
-		        }
+		        if (user.getTelefono() != null && user.getTelefono().isBlank()) {
+		        	user.setTelefono(null);
+		        } //direccion y telefono pueden no tener datos y le asigno nulo
 		        
-		        RegistroDao registro = new RegistroDao();
-		        boolean mailExiste = registro.existeEmail(email);
+		        RegistroDao registroRepository = new RegistroDao();
+		        boolean mailExiste = registroRepository.existeEmail(user.getEmail());
 		        if(mailExiste) {
 		        	response.getWriter().print("existeMail");
 		        }else {
-		        	boolean registroCorrecto = registro.registrar(email, contrasena, apellido, nombre, documento, direccion, telefono);	
+		        	boolean registroCorrecto = registroRepository.registrar(user);	
 		        	response.setContentType("text/plain");
 		        	if(registroCorrecto) {
 		        		response.getWriter().print("ok");

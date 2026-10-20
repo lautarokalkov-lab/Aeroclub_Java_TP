@@ -21,11 +21,10 @@ public class IngresoServlet extends HttpServlet {
 		
         String user = request.getParameter("usuario");
         String contra = request.getParameter("contrasena");
-        System.out.println("Recibido: "+ user + " " + contra);
         
-        IngresoDao ingreso = new IngresoDao();
+        IngresoDao ingresoRepository = new IngresoDao();
         
-        int id = ingreso.acceder(user, contra);
+        int id = ingresoRepository.acceder(user, contra);
         System.out.println("ID: "+ id);
         
         response.setContentType("text/plain");

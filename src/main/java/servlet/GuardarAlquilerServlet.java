@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import Clases.Alquiler;
+
 /**
  * Servlet implementation class GuardarAlquilerServlet
  */
@@ -21,18 +23,20 @@ public class GuardarAlquilerServlet extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-            int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
-            int idAvion = Integer.parseInt(request.getParameter("idAvion"));
-            String fechaInicio = request.getParameter("fechaInicio");
-            String horaInicio = request.getParameter("horaInicio");
-            int horasVuelo = Integer.parseInt(request.getParameter("horasVuelo"));
-            double costoTotal = Double.parseDouble(request.getParameter("costoTotal"));
+        	Alquiler alquiler = new Alquiler();
+        	
+            alquiler.setIdUsuario(Integer.parseInt(request.getParameter("idUsuario"))); 
+            alquiler.setIdAvion(Integer.parseInt(request.getParameter("idAvion")));
+            alquiler.setFechaInicio(request.getParameter("fechaInicio"));
+            alquiler.setHoraInicio(request.getParameter("horaInicio"));
+            alquiler.setHorasVuelo(Integer.parseInt(request.getParameter("horasVuelo")));
+            alquiler.setCostoTotal(Double.parseDouble(request.getParameter("costoTotal")));
 
 
             GuardarAlquilerDao alquilerRepository = new GuardarAlquilerDao();
-            alquilerRepository.Guardar(idUsuario, idAvion, fechaInicio, horaInicio, horasVuelo, costoTotal);
+            alquilerRepository.Guardar(alquiler);
             
-            response.sendRedirect(request.getContextPath() + "/NuevoAlquilerServlet?idUsuario=" + idUsuario);
+            response.sendRedirect(request.getContextPath() + "/NuevoAlquilerServlet?idUsuario=" + alquiler.getIdUsuario());
 
         } catch (NumberFormatException e) {
             response.sendError(

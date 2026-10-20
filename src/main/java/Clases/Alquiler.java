@@ -1,46 +1,51 @@
 package Clases;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class Alquiler {
     private int id;
-    private LocalDateTime hora_inicio;
-    private LocalDateTime hora_fin;
-    private LocalDate fecha_inicio;
-    private LocalDate fecha_fin;
+    private int idUsuario;
+    private int idAvion;
+    private String horaInicio;
+    private int horasVuelo;
+    private String fechaInicio;
     private String estado;
-    private double precio;
-
+    private double costoTotal;
+    
     
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}	
+	public int getIdUsuario() {
+		return idUsuario;
 	}
-	public LocalDateTime getHora_inicio() {
-		return hora_inicio;
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
-	public void setHora_inicio(LocalDateTime hora_inicio) {
-		this.hora_inicio = hora_inicio;
+	public int getIdAvion() {
+		return idAvion;
 	}
-	public LocalDateTime getHora_fin() {
-		return hora_fin;
+	public void setIdAvion(int idAvion) {
+		this.idAvion = idAvion;
 	}
-	public void setHora_fin(LocalDateTime hora_fin) {
-		this.hora_fin = hora_fin;
+	public String getHoraInicio() {
+		return horaInicio;
 	}
-	public LocalDate getFecha_inicio() {
-		return fecha_inicio;
+	public void setHoraInicio(String horaInicio) {
+		this.horaInicio = horaInicio;
 	}
-	public void setFecha_inicio(LocalDate fecha_inicio) {
-		this.fecha_inicio = fecha_inicio;
+	public int getHorasVuelo() {
+		return horasVuelo;
 	}
-	public LocalDate getFecha_fin() {
-		return fecha_fin;
+	public void setHorasVuelo(int horasVuelo) {
+		this.horasVuelo = horasVuelo;
 	}
-	public void setFecha_fin(LocalDate fecha_fin) {
-		this.fecha_fin = fecha_fin;
+	public String getFechaInicio() {
+		return fechaInicio;
+	}
+	public void setFechaInicio(String fechaInicio) {
+		this.fechaInicio = fechaInicio;
 	}
 	public String getEstado() {
 		return estado;
@@ -48,11 +53,14 @@ public class Alquiler {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	public double getPrecio() {
-		return precio;
+	public double getCostoTotal() {
+		return costoTotal;
 	}
-	public void setPrecio(double precio) {
-		this.precio = precio;
+	public void setCostoTotal(double costoTotal) {
+		this.costoTotal = costoTotal;
 	}
+
+    
+	
     
 }

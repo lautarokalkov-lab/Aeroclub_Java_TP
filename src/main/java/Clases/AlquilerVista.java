@@ -7,12 +7,9 @@ public class AlquilerVista {
 
     private String modelo;
     private String matricula;
-
     private LocalDate fechaInicio;
-
     private LocalTime horaInicio;
     private int horasVuelo;
-
     private double costoTotal;
     private String estado;
     

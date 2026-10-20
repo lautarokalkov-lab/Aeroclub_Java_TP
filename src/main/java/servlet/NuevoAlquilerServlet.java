@@ -1,6 +1,7 @@
 package servlet;
 import Daos.NuevoAlquilerDao;
 import Clases.AvionDisponible;
+import Clases.NuevoAlquiler;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -24,9 +25,9 @@ public class NuevoAlquilerServlet extends HttpServlet {
     	
     	int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
 
-        NuevoAlquilerDao dao = new NuevoAlquilerDao();
+        NuevoAlquilerDao NuevoAlquilerRepository = new NuevoAlquilerDao();
 
-        LinkedList<String> modelos = dao.listarModelos(idUsuario);
+        LinkedList<String> modelos = NuevoAlquilerRepository.listarModelos(idUsuario);
 
         request.setAttribute("modelos", modelos);
         request.getRequestDispatcher("/NuevoAlquiler/nuevoAlquiler.jsp").forward(request, response);
@@ -37,28 +38,24 @@ public class NuevoAlquilerServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
+    	
+    	NuevoAlquiler alquiler = new NuevoAlquiler();
+    	
+    	alquiler.setIdUsuario(Integer.parseInt(request.getParameter("idUsuario")));
 
-        int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+        alquiler.setFechaInicio(request.getParameter("fechaInicio"));        
+        alquiler.setHoraInicio(request.getParameter("horaInicio"));
+        alquiler.setHorasVuelo(Integer.parseInt(request.getParameter("horasVuelo")));
+        alquiler.setModelo(request.getParameter("modelo"));
 
-        String fechaInicio = request.getParameter("fechaInicio");        
-        String horaInicio = request.getParameter("horaInicio");
-        int horasVuelo = Integer.parseInt(request.getParameter("horasVuelo"));
-        String modelo = request.getParameter("modelo");
-
-        if(horasVuelo >0) {
-        	NuevoAlquilerDao dao = new NuevoAlquilerDao();
+        if(alquiler.getHorasVuelo() >0) {
+        	NuevoAlquilerDao NuevoAlquilerRepository = new NuevoAlquilerDao();
         	
         	LinkedList<AvionDisponible> aviones =
-        			dao.buscarDisponibles(
-        					idUsuario,
-        					fechaInicio,                    
-        					horaInicio,
-        					horasVuelo,
-        					modelo
-        					);
+        			NuevoAlquilerRepository.buscarDisponibles(alquiler);
         	
         	
-        	LinkedList<String> modelos = dao.listarModelos(idUsuario);
+        	LinkedList<String> modelos = NuevoAlquilerRepository.listarModelos(alquiler.getIdUsuario());
         	
         	request.setAttribute("modelos", modelos);
         	request.setAttribute("aviones", aviones);

@@ -1,34 +1,32 @@
 package Daos;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import Clases.Conexion;
+
 
 public class IngresoDao {
-	private String url = "jdbc:mysql://localhost:3306/aeroclub";
-    private String usuarioSql = "root";
-    private String contraseñaSql = "root";
+	Conexion conection = new Conexion();
     
     
     public int acceder(String user, String contra) {
     	String sql ="select id_usuario from usuario where email = ? and contraseña = ?";
     	
     	try {
-    		Class.forName("com.mysql.cj.jdbc.Driver");
+    		Class.forName(conection.getDriver());
     		
     		try (
-    				Connection conexion = DriverManager.getConnection(url, usuarioSql, contraseñaSql);
-    				
-    				PreparedStatement sentencia = conexion.prepareStatement(sql)
+    				Connection conexion = conection.conectar();
+                    PreparedStatement sentencia = conexion.prepareStatement(sql)
     				){
     			sentencia.setString(1, user);
     			sentencia.setString(2, contra);
     			
     			ResultSet resultado = sentencia.executeQuery(); 
-    			//ResultSet es el tipo de dato para una tabla de sql
+    			//ResultSet = tipo de dato para una tabla de sql
     			
-    			if (resultado.next()) { //avanza a la pirmera fila
+    			if (resultado.next()) {
     				
     				int id = resultado.getInt("id_usuario");
     				

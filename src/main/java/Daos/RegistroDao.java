@@ -5,20 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import Clases.Conexion;
+import Clases.Usuario;
+
 public class RegistroDao {
 
-    private String url = "jdbc:mysql://localhost:3306/aeroclub";
-    private String usuarioSql = "root";
-    private String contraseñaSql = "root";
+	Conexion conection = new Conexion();
 
-    public boolean registrar(
-            String email,
-            String contrasena,
-            String apellido,
-            String nombre,
-            String documento,
-            String direccion,
-            String telefono) {
+    public boolean registrar(Usuario user) {
 
         String sql =
             "INSERT INTO usuario " +
@@ -26,23 +20,18 @@ public class RegistroDao {
             "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName(conection.getDriver());
             try (
-                Connection conexion = DriverManager.getConnection(
-                    url,
-                    usuarioSql,
-                    contraseñaSql
-                );
-                PreparedStatement sentencia =
-                    conexion.prepareStatement(sql)
+            	Connection conexion = conection.conectar();
+                PreparedStatement sentencia = conexion.prepareStatement(sql)
             ) {
-                sentencia.setString(1, email);
-                sentencia.setString(2, contrasena);
-                sentencia.setString(3, apellido);
-                sentencia.setString(4, nombre);
-                sentencia.setString(5, documento);
-                sentencia.setString(6, direccion);
-                sentencia.setString(7, telefono);
+                sentencia.setString(1, user.getEmail());
+                sentencia.setString(2, user.getContraseña());
+                sentencia.setString(3, user.getApellido());
+                sentencia.setString(4, user.getNombre());
+                sentencia.setString(5, user.getNro_doc());
+                sentencia.setString(6, user.getDomicilio());
+                sentencia.setString(7, user.getTelefono());
 
                 int filas = sentencia.executeUpdate();
 
@@ -63,13 +52,9 @@ public class RegistroDao {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             try (
-                Connection conexion = DriverManager.getConnection(
-                    url, usuarioSql, contraseñaSql
-                );
+                Connection conexion = DriverManager.getConnection(conection.getUrl(), conection.getUsuarioSql(), conection.getContraseñaSql());
 
-                PreparedStatement sentencia =
-                    conexion.prepareStatement(sql)
-            ) {
+                PreparedStatement sentencia = conexion.prepareStatement(sql)) {
 
                 sentencia.setString(1, email);
                 ResultSet resultado = sentencia.executeQuery();

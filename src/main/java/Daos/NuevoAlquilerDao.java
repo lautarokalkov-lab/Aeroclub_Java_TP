@@ -4,24 +4,18 @@ import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 
 import Clases.AvionDisponible;
+import Clases.Conexion;
+import Clases.NuevoAlquiler;
 
 public class NuevoAlquilerDao {
-	private String url = "jdbc:mysql://localhost:3306/aeroclub";
-    private String usuarioSql = "root";
-    private String contraseñaSql = "root";
+	Conexion conection = new Conexion();
     
-    public LinkedList<AvionDisponible> buscarDisponibles(
-            int idUsuario,
-            String fechaInicio,            
-            String horaInicio,
-            int horasVuelo,
-            String modelo) {
+    public LinkedList<AvionDisponible> buscarDisponibles(NuevoAlquiler alquiler) {
 
         LinkedList<AvionDisponible> aviones = new LinkedList<>();
 
@@ -46,35 +40,28 @@ public class NuevoAlquilerDao {
 
         try {
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName(conection.getDriver());
 
             try (
-                Connection conexion =
-                    DriverManager.getConnection(
-                        url,
-                        usuarioSql,
-                        contraseñaSql
-                    );
-
-                PreparedStatement sentencia =
-                    conexion.prepareStatement(sql)
+            	Connection conexion = conection.conectar();
+                PreparedStatement sentencia = conexion.prepareStatement(sql)
             ) {
-            	sentencia.setInt(1, idUsuario);
+            	sentencia.setInt(1, alquiler.getIdUsuario());
             	
             	LocalDateTime inicio = LocalDateTime.of(
-            		    LocalDate.parse(fechaInicio),
-            		    LocalTime.parse(horaInicio));
+            		    LocalDate.parse(alquiler.getFechaInicio()),
+            		    LocalTime.parse(alquiler.getHoraInicio()));
 
-            	LocalDateTime fin = inicio.plusHours(horasVuelo);
+            	LocalDateTime fin = inicio.plusHours(alquiler.getHorasVuelo());
 
             	sentencia.setString(2, fin.toLocalDate().toString());
             	sentencia.setString(3, fin.toLocalTime().toString());
 
-            	sentencia.setString(4, fechaInicio);
-            	sentencia.setString(5, horaInicio);
+            	sentencia.setString(4, alquiler.getFechaInicio());
+            	sentencia.setString(5, alquiler.getHoraInicio());
 
-            	sentencia.setString(6, modelo);
-            	sentencia.setString(7, modelo);
+            	sentencia.setString(6, alquiler.getModelo());
+            	sentencia.setString(7, alquiler.getModelo());
 
                 ResultSet resultado = sentencia.executeQuery();
 
@@ -111,16 +98,10 @@ public class NuevoAlquilerDao {
     			 "WHERE estado = 'Activo' and licencia_usuario.id_usuario = ? " +
     			 "ORDER BY modelo";
     	 try {
-             Class.forName("com.mysql.cj.jdbc.Driver");
+             Class.forName(conection.getDriver());
              try (
-                 Connection conexion =
-                     DriverManager.getConnection(
-                         url,
-                         usuarioSql,
-                         contraseñaSql
-                     );
-
-                 PreparedStatement sentencia = conexion.prepareStatement(sql)
+            		 Connection conexion = conection.conectar();
+                     PreparedStatement sentencia = conexion.prepareStatement(sql)
              ) {
             	 sentencia.setInt(1, idUsuario);
                  ResultSet resultado = sentencia.executeQuery();

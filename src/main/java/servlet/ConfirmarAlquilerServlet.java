@@ -28,9 +28,9 @@ public class ConfirmarAlquilerServlet extends HttpServlet {
         String horaInicio = request.getParameter("horaInicio");
         String horasVuelo = request.getParameter("horasVuelo");
         
-        BuscarAvionDao buscar = new BuscarAvionDao();
+        BuscarAvionDao buscarRepository = new BuscarAvionDao();
         AvionDisponible avion = new AvionDisponible();
-        avion = buscar.buscarAvion(idAvion);
+        avion = buscarRepository.buscarAvion(idAvion);
         double costoTotal = avion.getPrecio_hora() * Integer.parseInt(horasVuelo);
 
         request.setAttribute("costoTotal", costoTotal);
