@@ -24,5 +24,5 @@ function IrNuevoAlquiler() {
 
 cursos.addEventListener("click", pagCursos);
 function pagCursos() {
-  window.location.replace("../Cursos/curso.html");
+  window.location.href = "../CursoServlet?idUsuario=" + idUsuario;
 }

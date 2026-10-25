@@ -4,7 +4,6 @@ const nuevoAlquiler = document.getElementById("nuevoAlquiler");
 const sobreNosotros = document.getElementById("sobreNosotros");
 const cursos = document.getElementById("cursos");
 const cancelar = document.getElementById("cancelar");
-const confirmar = document.getElementById("confirmar");
 
 const idUsuario = localStorage.getItem("idUsuario");
 
@@ -20,7 +19,7 @@ function Nosotros() {
 
 cursos.addEventListener("click", curso);
 function curso() {
-  window.location.replace("../Cursos/curso.html");
+  window.location.href = contexto + "/CursoServlet?idUsuario=" + idUsuario;
 }
 
 inicio.addEventListener("click", volver);

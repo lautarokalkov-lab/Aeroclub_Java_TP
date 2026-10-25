@@ -28,18 +28,36 @@
 
     <div class="alquileres">
       <div id="barraSuperior">
-        <div id="filtros">
-          <select>
-            <option>Todos los estados</option>
-            <option>Activo</option>
-            <option>Pendiente</option>
-            <option>Finalizado</option>
-          </select>
-
-          <input id="filtroFecha" type="date" />
-
-          <button id="botonFiltrar">Filtrar</button>
-        </div>
+		<form id="formFiltros"
+		      action="${pageContext.request.contextPath}/InicioServlet"
+		      method="GET">
+		
+		    <input type="hidden" name="idUsuario" value="${param.idUsuario}">
+		
+		    <select name="estado" id="filtroEstado">
+		        <option value="" ${empty param.estado ? 'selected' : ''}>
+		            Todos los estados
+		        </option>
+		        <option value="Activo" ${param.estado == 'Activo' ? 'selected' : ''}>
+		            Activo
+		        </option>
+		        <option value="Pendiente" ${param.estado == 'Pendiente' ? 'selected' : ''}>
+		            Pendiente
+		        </option>
+		        <option value="Finalizado" ${param.estado == 'Finalizado' ? 'selected' : ''}>
+		            Finalizado
+		        </option>
+		    </select>
+		
+		    <input
+		        id="filtroFecha"
+		        name="fecha"
+		        type="date"
+		        value="${param.fecha}"
+		    >
+		
+		    <button type="submit" id="botonFiltrar">Filtrar</button>
+		</form>
 
         <button id="botonNuevoAlquiler">Nuevo Alquiler</button>
       </div>

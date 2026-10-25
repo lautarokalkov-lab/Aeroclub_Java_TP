@@ -145,11 +145,11 @@ header #salir:hover {
   box-shadow: 0.5vh 0.5vh 0.5vh rgb(0 0 0 / 0.5);
 }
 
-#filtros {
+#formFiltros {
   margin-left: 5vh;
 }
 
-#filtros select {
+#filtroEstado {
   background-color: #6a6a6a;
   color: white;
   height: 5vh;

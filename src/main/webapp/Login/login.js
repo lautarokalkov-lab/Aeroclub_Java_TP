@@ -18,7 +18,7 @@ function iniciarSesion() {
     console.log("Falta algun dato");
     datoIncorrecto.innerText = "Llene todos los campos";
   } else {
-		const parametros = new URLSearchParams({
+		const parametros = new URLSearchParams({ //Convierto los parametros al formata que necesita la url
 		    usuario: user,
 		    contrasena: contra
 		});

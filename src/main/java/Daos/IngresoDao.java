@@ -23,8 +23,7 @@ public class IngresoDao {
     			sentencia.setString(1, user);
     			sentencia.setString(2, contra);
     			
-    			ResultSet resultado = sentencia.executeQuery(); 
-    			//ResultSet = tipo de dato para una tabla de sql
+    			ResultSet resultado = sentencia.executeQuery(); //ResultSet = tipo de dato para una tabla de sql
     			
     			if (resultado.next()) {
     				

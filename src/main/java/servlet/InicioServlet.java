@@ -22,14 +22,19 @@ public class InicioServlet extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-    		int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+    		int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));    		
+            String estado = request.getParameter("estado");
+            String fecha = request.getParameter("fecha");
+
+            if (estado == null) estado = "";
+            if (fecha == null) fecha = "";
 
     		InicioDao alquileresRepository = new InicioDao();
     		
     		alquileresRepository.actualizarEstados(idUsuario);
 
 
-    		LinkedList<AlquilerVista> listaAlquileres = alquileresRepository.listarPorUsuario(idUsuario);
+    		LinkedList<AlquilerVista> listaAlquileres = alquileresRepository.listarPorUsuario(idUsuario,estado,fecha);
 
     		request.setAttribute("alquileres", listaAlquileres);
 

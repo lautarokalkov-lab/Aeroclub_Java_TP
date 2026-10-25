@@ -118,9 +118,7 @@
 								<input type="hidden" name="horaInicio" value="${param.horaInicio}">
 								<input type="hidden" name="horasVuelo" value="${param.horasVuelo}">			                        
 			
-			                    <button type="submit">
-			                        Alquilar
-			                    </button>			
+			                    <button type="submit">Alquilar</button>			
 			                </form>			
 			            </td>			
 			        </tr>			

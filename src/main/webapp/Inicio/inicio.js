@@ -29,7 +29,7 @@ function IrNuevoAlquiler() {
 
 cursos.addEventListener("click", curso);
 function curso() {
-    window.location.replace(contexto + "/Cursos/curso.html");
+    window.location.href = contexto + "/CursoServlet?idUsuario=" + idUsuario;
 }
 
 

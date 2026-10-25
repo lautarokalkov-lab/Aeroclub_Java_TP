@@ -1,7 +1,6 @@
 package Daos;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -50,12 +49,11 @@ public class RegistroDao {
             "SELECT id_usuario FROM usuario WHERE email = ?";
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+        	Class.forName(conection.getDriver());
             try (
-                Connection conexion = DriverManager.getConnection(conection.getUrl(), conection.getUsuarioSql(), conection.getContraseñaSql());
-
-                PreparedStatement sentencia = conexion.prepareStatement(sql)) {
-
+                	Connection conexion = conection.conectar();
+                    PreparedStatement sentencia = conexion.prepareStatement(sql)
+                ) {
                 sentencia.setString(1, email);
                 ResultSet resultado = sentencia.executeQuery();
                 return resultado.next();

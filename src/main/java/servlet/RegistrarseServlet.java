@@ -30,7 +30,7 @@ public class RegistrarseServlet extends HttpServlet {
 		        user.setDomicilio(request.getParameter("direccion"));
 		        user.setTelefono(request.getParameter("telefono"));
 
-		        System.out.println("Registrando: " + user.getEmail() + " " + user.getNombre() + " " + user.getApellido());
+		        System.out.println("Registra: " + user.getEmail() + " " + user.getNombre() + " " + user.getApellido());
 		        if (user.getDomicilio() != null && user.getDomicilio().isBlank()) {
 		        	user.setDomicilio(null);
 		        }
