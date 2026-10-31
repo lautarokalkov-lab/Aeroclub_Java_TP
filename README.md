@@ -12,6 +12,10 @@ El sistema permite gestionar el alquiler de aviones en un aerodromo y los cursos
 ![TP](Aeroclub.png)
 
 
+## Diagrama de Clases
+![TP](DiagramaDeClases.png)
+
+
 ## Regularidad
 | Requerimiento    | Detalle/Listado de casos incluidos                                                                     |
 | :--------------- | ------------------------------------------------------------------------------------------------------ |
